@@ -15,14 +15,15 @@ app.get("/", function(req, res) {
 // this gets the response from the values in the web page
 app.post("/", function(req, res){
 
-  var radCircle = parseFloat(req.body.n1);;
+  var radius = parseFloat(req.body.n1);
+  var height = parseFloat(req.body.n2);
 
 // does the computation of the input variables, as numbers
-    var areaCircle = Math.PI * Math.pow(radCircle, 2);
-    var circumCircle = 2 * Math.PI * radCircle;
+    var volCylinder = Math.PI * (radius * radius) * height;
+   
 
 // sends the results back to the web page as string
-  res.send("The Area of the Cirle is " + areaCircle.toFixed(2) + " and the Circumference is " + circumCircle.toFixed(2));
+  res.send("The Volume of the Cylinder is " + volCylinder.toFixed(2));
 })
 //this gets the response from the web page to this placeholder
 // COMMENT out this code in Repl, as this is not running on localhost:3000
